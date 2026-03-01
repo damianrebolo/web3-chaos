@@ -3,7 +3,7 @@
 **Version:** 1.8.0-mvp  
 **Project:** State of Chaos  
 **Token Ticker:** $SOC  
-**Architecture:** Ethereum L2 (EVM) - Soneium 
+**Architecture:** Ethereum L2 (EVM)  
 **Core Engine:** Generative AI Game Master (AGM)
 
 ---
