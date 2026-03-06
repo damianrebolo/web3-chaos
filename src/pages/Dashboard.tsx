@@ -21,6 +21,7 @@ import {
 import { useState, useEffect } from "react";
 import StatCard from "../components/StatCard";
 import StabilityBar from "../components/StabilityBar";
+import { InfrastructureTab } from "../sections/infrastructure";
 
 const DashboardPage = () => {
   const [stability, _setStability] = useState(65);
@@ -96,7 +97,7 @@ const DashboardPage = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "INFRASTRUCTURE":
-        return <div>infra</div>;
+        return <InfrastructureTab />;
       case "SCIENCE":
         return <div>science</div>;
       case "INTELLIGENCE":
@@ -445,6 +446,7 @@ const DashboardPage = () => {
                 { name: "Brent Crude", price: "$82.40", up: false },
                 { name: "Gold", price: "$2,450", up: true },
                 { name: "Water", price: "$1,03", up: true },
+                { name: "Energy", price: "$0.47", up: false },
               ].map((item, i) => (
                 <div
                   key={i}
