@@ -1,13 +1,18 @@
-import { useState } from "react";
 import "./App.css";
 import HomePage from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import { Route, BrowserRouter } from "react-router";
+import { Routes } from "react-router";
 
 const App = () => {
-  const [view, setView] = useState("HOME");
-  if (view === "HOME") return <HomePage onStart={() => setView("GAME")} />;
-
-  return <Dashboard />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
