@@ -1,55 +1,13 @@
-import {
-  Users,
-  TrendingUp,
-  Zap,
-  Shield,
-  Beaker,
-  AlertTriangle,
-  Landmark,
-  Activity,
-  Menu,
-  ChevronRight,
-} from "lucide-react";
+import { TrendingUp, AlertTriangle, Landmark, Activity } from "lucide-react";
 import { useState } from "react";
 import { InfrastructureTab } from "../sections/infrastructure";
 import { Layout } from "../components/Layout";
 import { Header } from "../components/Header";
+import { LeftAside } from "../components/LeftAside";
+import type { TabType } from "../definitions/Tabs";
 
 const DashboardPage = () => {
-  const [activeTab, setActiveTab] = useState("GABINETE");
-
-  const ministries = [
-    {
-      id: "INFRASTRUCTURE",
-      name: "INFRASTRUCTURE",
-      icon: <Users size={18} />,
-      color: "hover:text-blue-400",
-    },
-    {
-      id: "SCIENCE",
-      name: "SCIENCE",
-      icon: <Beaker size={18} />,
-      color: "hover:text-emerald-400",
-    },
-    {
-      id: "INTELLIGENCE",
-      name: "INTELLIGENCE",
-      icon: <TrendingUp size={18} />,
-      color: "hover:text-amber-400",
-    },
-    {
-      id: "DEFENSE",
-      name: "DEFENSE",
-      icon: <Shield size={18} />,
-      color: "hover:text-red-500",
-    },
-    {
-      id: "FLEETS",
-      name: "FLEETS",
-      icon: <Zap size={18} />,
-      color: "hover:text-indigo-400",
-    },
-  ];
+  const [activeTab, setActiveTab] = useState<TabType>("OVERVIEW");
 
   const renderContent = () => {
     switch (activeTab) {
@@ -166,7 +124,8 @@ const DashboardPage = () => {
 
       <div className="flex flex-1 overflow-hidden">
         {/* --- SIDEBAR --- */}
-        <aside className="w-64 border-r border-white/5 bg-slate-900/30 p-4 flex flex-col gap-1">
+        <LeftAside activeTab={activeTab} onTabChange={setActiveTab} />
+        {/*<aside className="w-64 border-r border-white/5 bg-slate-900/30 p-4 flex flex-col gap-1">
           <h2 className="text-[10px] text-slate-600 font-black tracking-[0.3em] uppercase mb-4 px-3">
             Central Cabinet
           </h2>
@@ -213,7 +172,7 @@ const DashboardPage = () => {
               Points: 450 / 600
             </span>
           </div>
-        </aside>
+        </aside>*/}
 
         <main className="flex-1 overflow-y-auto p-8 bg-[radial-gradient(circle_at_50%_0%,rgba(30,41,59,0.5)_0%,transparent_70%)]">
           <div className="max-w-4xl mx-auto">{renderContent()}</div>
