@@ -22,6 +22,7 @@ import { useState, useEffect } from "react";
 import StatCard from "../components/StatCard";
 import StabilityBar from "../components/StabilityBar";
 import { InfrastructureTab } from "../sections/infrastructure";
+import { Layout } from "../components/Layout";
 
 const DashboardPage = () => {
   const [stability, _setStability] = useState(65);
@@ -204,7 +205,7 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-amber-500/30 overflow-hidden flex flex-col">
+    <Layout>
       {/* --- TOP BAR --- */}
       <header className="h-16 border-b border-white/10 bg-black/60 backdrop-blur-xl flex items-center justify-between px-6 z-100">
         <div className="flex items-center gap-2 mr-8">
@@ -466,7 +467,7 @@ const DashboardPage = () => {
           </section>
         </aside>
       </div>
-    </div>
+    </Layout>
   );
 };
 
