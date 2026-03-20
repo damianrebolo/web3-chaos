@@ -1,4 +1,4 @@
-import { TrendingUp, AlertTriangle, Landmark, Activity } from "lucide-react";
+import { AlertTriangle, Landmark, Activity } from "lucide-react";
 import { useState } from "react";
 import { InfrastructureTab } from "../sections/infrastructure";
 import { Layout } from "../components/Layout";
@@ -121,97 +121,11 @@ const DashboardPage = () => {
   return (
     <Layout>
       <Header />
-
       <div className="flex flex-1 overflow-hidden">
-        {/* --- SIDEBAR --- */}
         <LeftAside activeTab={activeTab} onTabChange={setActiveTab} />
-        {/*<aside className="w-64 border-r border-white/5 bg-slate-900/30 p-4 flex flex-col gap-1">
-          <h2 className="text-[10px] text-slate-600 font-black tracking-[0.3em] uppercase mb-4 px-3">
-            Central Cabinet
-          </h2>
-          <button
-            onClick={() => {
-              setActiveTab("GABINETE");
-            }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all border group ${activeTab === "GABINETE" ? "bg-amber-500/10 border-amber-500/30 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.1)]" : "border-transparent text-slate-500 hover:bg-white/5 hover:text-slate-300"}`}
-          >
-            <Menu size={18} />
-            <span className="text-xs font-bold tracking-wider uppercase">
-              Overview
-            </span>
-          </button>
-          <div className="my-4 border-t border-white/5" />
-          {ministries.map((min) => (
-            <button
-              key={min.id}
-              onClick={() => {
-                setActiveTab(min.id);
-              }}
-              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all border group ${activeTab === min.id ? "bg-white/10 border-white/20 text-white" : `border-transparent text-slate-500 ${min.color}`}`}
-            >
-              <div className="flex items-center gap-3">
-                {min.icon}
-                <span className="text-xs font-bold tracking-wider uppercase">
-                  {min.name}
-                </span>
-              </div>
-              <ChevronRight
-                size={14}
-                className={`opacity-0 group-hover:opacity-100 transition-opacity ${activeTab === min.id ? "opacity-100" : ""}`}
-              />
-            </button>
-          ))}
-          <div className="mt-auto p-4 bg-amber-950/20 border border-amber-900/30 rounded-2xl">
-            <span className="text-[9px] text-amber-500 font-black uppercase tracking-widest block mb-2">
-              State Bureaucracy
-            </span>
-            <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-full bg-amber-500 w-[75%]" />
-            </div>
-            <span className="text-[10px] text-slate-500 mt-2 block font-mono">
-              Points: 450 / 600
-            </span>
-          </div>
-        </aside>*/}
-
         <main className="flex-1 overflow-y-auto p-8 bg-[radial-gradient(circle_at_50%_0%,rgba(30,41,59,0.5)_0%,transparent_70%)]">
-          <div className="max-w-4xl mx-auto">{renderContent()}</div>
+          <div className="max-w-7xl mx-auto">{renderContent()}</div>
         </main>
-
-        <aside className="w-80 border-l border-white/5 bg-black/40 p-6 flex flex-col gap-8">
-          <section className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <TrendingUp size={16} className="text-slate-500" />
-                <h2 className="text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
-                  Commodities
-                </h2>
-              </div>
-            </div>
-            <div className="space-y-2">
-              {[
-                { name: "Brent Crude", price: "$82.40", up: false },
-                { name: "Gold", price: "$2,450", up: true },
-                { name: "Water", price: "$1,03", up: true },
-                { name: "Energy", price: "$0.47", up: false },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5 font-mono"
-                >
-                  <span className="text-[10px] text-slate-400 uppercase tracking-tighter">
-                    {item.name}
-                  </span>
-                  <span
-                    className={`text-xs font-bold ${item.up ? "text-green-500" : "text-red-500"}`}
-                  >
-                    {item.price}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
-        </aside>
       </div>
     </Layout>
   );

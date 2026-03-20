@@ -6,8 +6,9 @@ import {
   Zap,
   Menu,
   ChevronRight,
+  Clock,
 } from "lucide-react";
-import type { FC } from "react";
+import { useEffect, useState, type FC } from "react";
 import type { TabType } from "../../definitions/Tabs";
 
 const ministries = [
@@ -49,6 +50,13 @@ interface LeftAsideProps {
 }
 
 export const LeftAside: FC<LeftAsideProps> = ({ onTabChange, activeTab }) => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <aside className="w-64 border-r border-white/5 bg-slate-900/30 p-4 flex flex-col gap-1">
       <h2 className="text-[10px] text-slate-600 font-black tracking-[0.3em] uppercase mb-4 px-3">
@@ -86,15 +94,20 @@ export const LeftAside: FC<LeftAsideProps> = ({ onTabChange, activeTab }) => {
           />
         </button>
       ))}
-      <div className="mt-auto p-4 bg-amber-950/20 border border-amber-900/30 rounded-2xl">
-        <span className="text-[9px] text-amber-500 font-black uppercase tracking-widest block mb-2">
-          State Bureaucracy
-        </span>
-        <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
-          <div className="h-full bg-amber-500 w-[75%]" />
+
+      <div className="mt-auto text-right flex flex-col items-center">
+        <div className="flex items-center gap-2 text-amber-500/80">
+          <Clock size={12} />
+          <span className="text-xs font-mono font-bold uppercase">
+            {time.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+            })}
+          </span>
         </div>
-        <span className="text-[10px] text-slate-500 mt-2 block font-mono">
-          Points: 450 / 600
+        <span className="text-[9px] text-slate-500 font-bold tracking-widest uppercase">
+          Universe: Alpha-01
         </span>
       </div>
     </aside>

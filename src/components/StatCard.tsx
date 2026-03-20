@@ -9,7 +9,9 @@ interface StatCardProps {
 
 const StatCard: FC<StatCardProps> = ({ label, value, subValue, color }) => (
   <div className="flex flex-col px-4 border-r border-white/5 last:border-r-0">
-    <span className="text-[10px] text-slate-500 font-bold tracking-[0.2em] uppercase">
+    <span
+      className={`text-[10px] font-bold tracking-[0.2em] uppercase ${color}`}
+    >
       {label}
     </span>
     <div className="flex items-baseline gap-2">

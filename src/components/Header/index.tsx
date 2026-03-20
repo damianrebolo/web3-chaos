@@ -1,5 +1,4 @@
 import {
-  Clock,
   Bell,
   X,
   User,
@@ -9,7 +8,7 @@ import {
   LogOut,
 } from "lucide-react";
 import StatCard from "../StatCard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const notifications = [
   {
@@ -36,14 +35,8 @@ const notifications = [
 ];
 
 export const Header = () => {
-  const [time, setTime] = useState(new Date());
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <header className="h-16 border-b border-white/10 bg-black/60 backdrop-blur-xl flex items-center justify-between px-6 z-100">
@@ -56,34 +49,41 @@ export const Header = () => {
             State of Chaos
           </h1>
           <span className="text-[9px] text-amber-500/70 font-mono">
-            ADMIN-SYS v4.0.2
+            v0.0.1-alpha
           </span>
         </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-between gap-0">
+      <div className="flex-1 flex items-center justify-around gap-0">
+        <StatCard label="Population" value="125.3M" color="text-blue-400" />
         <StatCard
-          label="Treasury"
+          label="Gold"
           value="$1,450.8M"
-          subValue="(+$12k)"
+          subValue="12k/h"
           color="text-amber-400"
         />
-        {/*<div className="px-8 flex flex-col items-center border-r border-white/5">
-          <span className="text-[10px] text-slate-500 font-bold tracking-[0.2em] mb-1 uppercase">
-            Stability
-          </span>
-          <StabilityBar value={stability} />
-        </div>*/}
         <StatCard
-          label="Population"
+          label="Brent Crude"
           value="125.3M"
-          subValue="(+0.5%)"
-          color="text-blue-400"
+          subValue="1k/h"
+          color="text-taupe-500"
+        />
+        <StatCard
+          label="Water"
+          value="125.3M"
+          subValue="1k/h"
+          color="text-blue-500"
+        />
+        <StatCard
+          label="Energy"
+          value="125.3M"
+          subValue="1k/h"
+          color="text-emerald-500"
         />
       </div>
 
       <div className="flex items-center gap-4 ml-8 relative">
-        <div className="text-right flex flex-col items-end mr-2">
+        {/*<div className="text-right flex flex-col items-end mr-2">
           <div className="flex items-center gap-2 text-amber-500/80">
             <Clock size={12} />
             <span className="text-xs font-mono font-bold uppercase">
@@ -97,7 +97,7 @@ export const Header = () => {
           <span className="text-[9px] text-slate-500 font-bold tracking-widest uppercase">
             World: Alpha-01
           </span>
-        </div>
+        </div>*/}
 
         {/* Botón Notificaciones */}
         <div className="relative">
