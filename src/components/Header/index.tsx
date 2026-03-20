@@ -1,12 +1,4 @@
-import {
-  Bell,
-  X,
-  User,
-  CheckCircle2,
-  Settings2,
-  Globe,
-  LogOut,
-} from "lucide-react";
+import { Bell, X, User, CheckCircle2, Settings2, LogOut } from "lucide-react";
 import StatCard from "../StatCard";
 import { useState } from "react";
 
@@ -83,22 +75,6 @@ export const Header = () => {
       </div>
 
       <div className="flex items-center gap-4 ml-8 relative">
-        {/*<div className="text-right flex flex-col items-end mr-2">
-          <div className="flex items-center gap-2 text-amber-500/80">
-            <Clock size={12} />
-            <span className="text-xs font-mono font-bold uppercase">
-              {time.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-              })}
-            </span>
-          </div>
-          <span className="text-[9px] text-slate-500 font-bold tracking-widest uppercase">
-            World: Alpha-01
-          </span>
-        </div>*/}
-
         {/* Botón Notificaciones */}
         <div className="relative">
           <button
@@ -165,9 +141,6 @@ export const Header = () => {
               <span className="text-[10px] font-black text-white block leading-none uppercase tracking-tighter">
                 Pres. Valtierra
               </span>
-              <span className="text-[8px] text-amber-500 font-bold uppercase tracking-widest">
-                Nivel 42
-              </span>
             </div>
             <div className="w-8 h-8 rounded-full bg-slate-800 border border-white/20 flex items-center justify-center overflow-hidden">
               <User size={16} className="text-slate-400" />
@@ -191,9 +164,6 @@ export const Header = () => {
               <div className="p-2 space-y-1">
                 <button className="w-full flex items-center gap-3 px-4 py-2.5 text-[10px] font-bold text-slate-300 hover:bg-white/5 rounded-lg transition-all uppercase tracking-wider">
                   <Settings2 size={14} /> Account Settings
-                </button>
-                <button className="w-full flex items-center gap-3 px-4 py-2.5 text-[10px] font-bold text-slate-300 hover:bg-white/5 rounded-lg transition-all uppercase tracking-wider">
-                  <Globe size={14} /> World Selector
                 </button>
                 <div className="my-1 border-t border-white/5 mx-2" />
                 <button className="w-full flex items-center gap-3 px-4 py-2.5 text-[10px] font-bold text-red-500 hover:bg-red-500/10 rounded-lg transition-all uppercase tracking-wider">
